@@ -26,7 +26,7 @@
 
 + 附圖為執行後的範例
 
-  ![convert](/Users/judyfang/Desktop/python_test/convert.png)
+  ![convert](convert.png)
 
 ## Crawler
 
@@ -43,7 +43,7 @@
 
 + out.csv中包含產品的title(簡體中文)以及產品的price，附圖為範例
 
-  ![product](/Users/judyfang/Desktop/python_test/product.png)
+  ![product](product.png)
 
 ## Modify the given program to output "foobaryeah" n times.
 
@@ -55,6 +55,6 @@
 
 + 執行foobar.py後會在cmd輸入n，即可得到附圖結果（附圖n=5)
 
-  ![foobar](/Users/judyfang/Desktop/python_test/foobar.png)
+  ![foobar](foobar.png)
 
   
