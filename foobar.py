@@ -1,25 +1,23 @@
-class FooBar():
+from threading import Lock
+class FooBar:
     def __init__(self, n):
         self.n = n
+        self.foo_lock = Lock()
+        self.bar_lock = Lock()
+        self.bar_lock.acquire()
 
-    def foo(self):
-        for _ in range(self.n):
-            print("foo")
 
-    def bar(self):
-        for _ in range(self.n):
-	        print("bar")
-    
-    def yeah(self):
-        for _ in range(self.n):
-	        print("yeah")
+    def foo(self, printFoo: 'Callable[[], None]') -> None:
+        for i in range(self.n):
+            self.foo_lock.acquire()
+            # printFoo() outputs "foo". Do not change or remove this line.
+            printFoo()
+            self.bar_lock.release()
 
-    def all(self):
-        for _ in range(self.n):
-	        print("foobaryeah")
 
-if __name__ == '__main__':
-    n=int(input('Input: n = '))
-    a=FooBar(n)
-    print('Output:')
-    a.all()
+    def bar(self, printBar: 'Callable[[], None]') -> None:
+        for i in range(self.n):
+            self.bar_lock.acquire()
+            # printBar() outputs "bar". Do not change or remove this line.
+            printBar()
+            self.foo_lock.release()
